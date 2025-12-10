@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Gamedev Canvas Workshop</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        canvas {
+            background: #eee;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="480" height="320"></canvas>
+
+    <script>
+        //   ここからがJavascript
+
+        // 描画の準備  const = 変えれない変数
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d"); // Context : 描画の設定をまとめた変数
+
+        //   一回の描画
+        ctx.beginPath();
+        ctx.rect(20, 40, 50, 50);
+        //   rectangle(四角形/長方形)を設定
+        //  引数：(左のスクリーン座標、上スクリーン座標、幅、高さ)  : 単位はpx
+        ctx.fillStyle = "#FF0000";
+        // fill(塗りつぶし) Styleを設定 / カラーコード(16進数RRGGBB)
+        ctx.fill();
+        // 塗りつぶしを実行
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(240, 160, 20, 0, Math.PI * 2);
+        // arc(円弧)関数 
+        // 引数(Augment) 240
+        // 中心のx,yの座標 160
+        // 縁の半径(radius) 20
+        // 中心角(Angle) *ラジアン(1週は360度(Degree) -> 2n)
+        ctx.fillStyle = "#0095DD"
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.rect(160, 10, 100, 40);
+        // rgb:0~225, a:0.0~1.0
+        ctx.stroke();
+        ctx.closePath();
+
+
+    </script>
+</body>
+
+</html>
